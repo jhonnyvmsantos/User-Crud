@@ -18,7 +18,7 @@ const pages = [
     },
     {
         component: document.getElementById("reg-page"),
-        page: "pages/reg.html"
+        page: "pages/reg.php"
     }
 ]
 

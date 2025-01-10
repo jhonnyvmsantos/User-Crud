@@ -9,6 +9,27 @@
   <script defer src="../script.js"></script>
 </head>
 
+<?php
+
+include_once("../database/db.php");
+
+if (isset($_POST['submit'])) {
+  $name = $_POST['name'];
+  $email = $_POST['email'];
+  $pass = $_POST['password'];
+
+  $sql = "INSERT INTO tbl_user (user_name, user_email, user_password) VALUES ('$name', '$email', '$pass')";
+  $result = mysqli_query($conn, $sql);
+  
+  if ($result == true) {
+    echo "<script>alert('Cadastro efetuado com SUCESSO.');</script>";
+    echo "<script>window.location.href = 'list.php';</script>";
+  } else {
+    echo "<script>alert('Não foi possivel cadastrar o usuário...');</script>";
+  }
+}
+?>
+
 <body>
   <div class="navbar">
     <div>
@@ -28,27 +49,25 @@
   </div>
 
   <main id="register-main">
-    <form action="../backend/process.php" method="POST">
+    <form action="./reg.php" method="POST">
       <h3>Cadastro de Usuário</h3>
 
       <div class="reg-input">
-        <p>Name</p>
+        <label>Name</label>
+        <br />
         <input required type="text" id="name" name="name" placeholder="Insira seu nome completo..." />
       </div>
 
       <div class="reg-input">
-        <p>Email</p>
-        <input required type="text" id="email" name="email" placeholder="Insira seu email..." />
+        <label>Email</label>
+        <br />
+        <input required type="email" id="email" name="email" placeholder="Insira seu email..." />
       </div>
 
       <div class="reg-input">
-        <p>Password</p>
-        <input required type="text" id="password" name="password" placeholder="Defina uma senha..." />
-      </div>
-
-      <div class="reg-input">
-        <p>Confirm Password</p>
-        <input required type="text" id="confirmPassword" name="confirmPassword" placeholder="Repita sua senha..." />
+        <label>Password</label>
+        <br />
+        <input required type="password" id="password" name="password" placeholder="Defina uma senha..." />
       </div>
 
       <div id="reg-button">

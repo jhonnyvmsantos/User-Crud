@@ -190,7 +190,47 @@ form h3 {
 /* LIST.HTML */
 
 .list-container {
+    border: solid 1px;
+    border-radius: 20px;
     margin-top: 1rem;
+    padding: 2rem;
+}
+
+.list-item {
+    border: groove 2.5px;
+    border-radius: 5px;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    min-width: 300px;
+    width: 100%;
+    height: 50;
+    gap: 0.5rem;
+    padding: 0.1rem;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.list-id {
+    border: groove;
+    padding: 0.25rem;
+}
+
+.list-info {
+    flex: 1;
+    padding: 0.25rem;
+}
+
+.list-buttons {
+    display: flex;
+    flex-direction: row;
+    padding: 0.25rem;
+    gap: 0.5rem;
+}
+
+.list-buttons img {
+    width: 25px;
+    height: 25px;
 }
 
 /* MEDIA */
