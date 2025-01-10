@@ -44,6 +44,16 @@ $sql = "SELECT * FROM tbl_user";
 
 $res = mysqli_query($conn, $sql);
 
+function delete($id) {
+  global $conn;
+  mysqli_query($conn, "DELETE FROM tbl_user WHERE user_id = $id");
+
+  echo "<script>
+    alert('Usuário deletado com sucesso.');
+    window.locate.href = 'list.php';
+  </script>";
+}
+
 if ($res->num_rows > 0) {
   echo "<script> 
     let lContainer = document.getElementById('list-content'); 
@@ -90,6 +100,14 @@ if ($res->num_rows > 0) {
       item.appendChild(buttons);
 
       lContainer.appendChild(item);
+
+      edit.addEventListener('click', () => {
+        alert('$row->user_name');
+      });
+
+      trash.addEventListener('click', () => {
+        alert('$row->user_email');
+      });
 
     </script>";
   }
