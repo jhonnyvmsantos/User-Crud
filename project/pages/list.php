@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <meta charset="UTF-8">
@@ -12,7 +12,7 @@
 <body>
   <div class="navbar">
     <div>
-      <h2 id="home_page">USER</h2>
+      <h2 id="home-page">USER</h2>
     </div>
 
     <div class="navbar-menu" id="menu-button">
@@ -21,11 +21,21 @@
 
     <nav>
       <ul>
-        <li id="list_page">LISTAGEM</li>
-        <li id="reg_page">CADASTRO</li>
+        <li id="list-page">LISTAGEM</li>
+        <li id="reg-page">CADASTRO</li>
       </ul>
     </nav>
   </div>
+
+  <main id="list-main">
+    <div class="list-container">
+      <h2>LISTAGEM DE USUÁRIOS</h2>
+
+      <div class="list_content">
+        
+      </div>
+    </div>
+  </main>
 </body>
 
 </html>
