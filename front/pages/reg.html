@@ -2,26 +2,60 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../style.css">
-    <script defer src="../script.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../style.css">
+  <script defer src="../script.js"></script>
 </head>
 
 <body>
-    <div class="navbar">
-        <div>
-          <h1 id="home_page">USER</h1>
-        </div>
-    
-        <nav>
-          <ul>
-            <li id="list_page">LISTAGEM</li>
-            <li id="reg_page">CADASTRO</li>
-          </ul>
-        </nav>
+  <div class="navbar">
+    <div>
+      <h2 id="home_page">USER</h2>
+    </div>
+
+    <div class="navbar-menu" id="menu-button">
+      <img src="../imgs/menu.png" alt="navbar-menu" />
+    </div>
+
+    <nav>
+      <ul>
+        <li id="list_page">LISTAGEM</li>
+        <li id="reg_page">CADASTRO</li>
+      </ul>
+    </nav>
+  </div>
+
+  <main id="register_main">
+    <form onsubmit="">
+      <h3>Cadastro de Usuário</h3>
+
+      <div class="reg_input">
+        <p>Name</p>
+        <input required type="text" id="name_input" placeholder="Insira seu nome completo..." />
       </div>
+
+      <div class="reg_input">
+        <p>Email</p>
+        <input required type="text" id="email_input" placeholder="Insira seu email..." />
+      </div>
+
+      <div class="reg_input">
+        <p>Password</p>
+        <input required type="text" id="password_input" placeholder="Defina uma senha..." />
+      </div>
+
+      <div class="reg_input">
+        <p>Confirm Password</p>
+        <input required type="text" id="confirm_password_input" placeholder="Repita sua senha..." />
+      </div>
+
+      <div id="reg_button">
+        <button type='submit'>Enviar</button>
+      </div>
+    </form>
+  </main>
 </body>
 
 </html>

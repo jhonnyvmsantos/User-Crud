@@ -1,5 +1,12 @@
 // NAVBAR
 
+const navbar = document.querySelector("nav");
+const mButton = document.querySelector("#menu-button");
+
+mButton.addEventListener("click", () => {
+    navbar.classList.toggle("menu-visible");
+});
+
 const pages = [
     {
         component: document.getElementById("home_page"),
