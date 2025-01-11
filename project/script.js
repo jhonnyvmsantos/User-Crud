@@ -10,7 +10,7 @@ mButton.addEventListener("click", () => {
 const pages = [
     {
         component: document.getElementById("home-page"),
-        page: "index.html"
+        page: "index.php"
     },
     {
         component: document.getElementById("list-page"),
@@ -24,7 +24,7 @@ const pages = [
 
 pages.forEach((e, i) => {
     e.component.addEventListener('click', () => {
-        if (window.location.href.includes("index.html") || !window.location.href.includes("pages")) {
+        if (window.location.href.includes("index.php") || !window.location.href.includes("pages")) {
             window.location.href = e.page;
         } else {
             window.location.href = `../${e.page}`;

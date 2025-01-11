@@ -9,27 +9,6 @@
   <script defer src="../script.js"></script>
 </head>
 
-<?php
-
-include_once("../database/db.php");
-
-if (isset($_POST['submit'])) {
-  $name = $_POST['name'];
-  $email = $_POST['email'];
-  $pass = $_POST['password'];
-
-  $sql = "INSERT INTO tbl_user (user_name, user_email, user_password) VALUES ('$name', '$email', '$pass')";
-  $result = mysqli_query($conn, $sql);
-  
-  if ($result == true) {
-    echo "<script>alert('Cadastro efetuado com SUCESSO.');</script>";
-    echo "<script>window.location.href = 'list.php';</script>";
-  } else {
-    echo "<script>alert('Não foi possivel cadastrar o usuário...');</script>";
-  }
-}
-?>
-
 <body>
   <div class="navbar">
     <div>
@@ -49,7 +28,7 @@ if (isset($_POST['submit'])) {
   </div>
 
   <main id="register-main">
-    <form action="./reg.php" method="POST">
+    <form action="./list.php?action=create" method="POST">
       <h3>Cadastro de Usuário</h3>
 
       <div class="reg-input">
