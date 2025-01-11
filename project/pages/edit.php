@@ -36,7 +36,7 @@ $res = mysqli_query($conn, $sql)->fetch_object();
     </div>
 
     <main id="edit-main">
-        <form action="./list.php?action=edit" method="POST">
+        <form action="./list.php?action=edit" method="POST" onsubmit="pass_verification(event)">
             <h3>Editar Usuário</h3>
 
             <input type="hidden" name="id" value="<?php echo $res->user_id; ?>">

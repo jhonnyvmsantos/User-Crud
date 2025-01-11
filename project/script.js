@@ -31,3 +31,12 @@ pages.forEach((e, i) => {
         }
     });
 });
+
+function pass_verification(event) {
+    const form = event.target;
+
+    if (form.password.value.length < 6) {
+        event.preventDefault();
+        alert("A senha deve conter, ao menos, 6 caracteres...");
+    }
+}

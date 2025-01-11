@@ -28,7 +28,7 @@
   </div>
 
   <main id="register-main">
-    <form action="./list.php?action=create" method="POST">
+    <form action="./list.php?action=create" method="POST" onsubmit="pass_verification(event)">
       <h3>Cadastro de Usuário</h3>
 
       <div class="reg-input">

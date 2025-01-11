@@ -10,7 +10,19 @@
         $name = $_POST['name'];
         $email = $_POST['email'];
         $pass = $_POST['password'];
-  
+        
+        $sql = "SELECT count(user_id) AS id FROM tbl_user WHERE user_email = '$email'";
+        $res = mysqli_query($conn, $sql)->fetch_object();
+
+        if ($res->id > 0) {
+          die("
+            <script>
+              alert('Email já cadastrado...');
+              window.location.href = './reg.php';
+            </script>
+          ");
+        }
+
         $sql = "INSERT INTO tbl_user (user_name, user_email, user_password) VALUES ('$name', '$email', '$pass')";
         $res = mysqli_query($conn, $sql);
   
@@ -26,6 +38,18 @@
         $name = $_POST['name'];
         $email = $_POST['email'];
         $pass = $_POST['password'];
+
+        $sql = "SELECT count(user_id) AS id FROM tbl_user WHERE user_email = '$email'";
+        $res = mysqli_query($conn, $sql)->fetch_object();
+
+        if ($res->id > 0) {
+          die("
+            <script>
+              alert('Email já cadastrado...');
+              window.location.href = './edit.php?id=$id';
+            </script>
+          ");
+        }
 
         $sql = "UPDATE tbl_user SET user_name = '$name', user_email = '$email', user_password = '$pass' WHERE user_id = $id";
         // echo "<script> alert('EDIT ($id)'); </script>";
