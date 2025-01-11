@@ -12,9 +12,9 @@
         $pass = $_POST['password'];
   
         $sql = "INSERT INTO tbl_user (user_name, user_email, user_password) VALUES ('$name', '$email', '$pass')";
-        $result = mysqli_query($conn, $sql);
+        $res = mysqli_query($conn, $sql);
   
-        if ($result == true) {
+        if ($res == true) {
           echo "<script>alert('Cadastro efetuado com SUCESSO.');</script>";
         } else {
           echo "<script>alert('ERRO ao cadastrar o usuário...');</script>";
@@ -22,7 +22,21 @@
         break;
   
       case 'edit':
-        echo "<script>alert('EDIT');</script>";
+        $id = $_POST["id"];
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $pass = $_POST['password'];
+
+        $sql = "UPDATE tbl_user SET user_name = '$name', user_email = '$email', user_password = '$pass' WHERE user_id = $id";
+        // echo "<script> alert('EDIT ($id)'); </script>";
+        $res = mysqli_query($conn, $sql);
+
+        if ($res == true) {
+          echo "<script>alert('Edição efetuada com SUCESSO.');</script>";
+        } else {
+          echo "<script>alert('ERRO ao editar dados do usuário...');</script>";
+        }
+
         break;
   
       case 'delete':
@@ -118,7 +132,7 @@
                   del = document.getElementById('del-btn$index');
 
                   edit.addEventListener('click', () => {
-                    alert('$name');
+                    window.location.href = './edit.php?id=$id';
                   });
 
                   del.addEventListener('click', () => {
@@ -127,6 +141,12 @@
                 </script>
               ";
             }
+          } else {
+            echo "
+              <div class='list-nothing'>
+                <h5>Nenhum usuário cadastrado...</h5>
+              </div>
+            ";
           }
         ?>
       </div>

@@ -50,7 +50,7 @@
       </div>
 
       <div id="reg-button">
-        <button type='submit' name="submit" id="submit">Enviar</button>
+        <button type='submit'>Enviar</button>
       </div>
     </form>
   </main>

@@ -136,7 +136,7 @@ nav ul li:hover {
 
 /* REG.HTML */
 
-#register-main {
+#register-main, #edit-main {
     height: 100vh;
 }
 
@@ -154,17 +154,17 @@ form h3 {
     align-self: center;
 }
 
-.reg-input {
+.reg-input, .edit-input {
     text-align: left;
     margin: 1rem;
 }
 
-.reg-input p {
+.reg-input p, .edit-input p {
     margin-bottom: 0.2rem;
     font-weight: bold;
 }
 
-.reg-input input {
+.reg-input input, .edit-input input {
     border: groove 1px;
     border-radius: 5px;
     padding: 5px;
@@ -172,13 +172,13 @@ form h3 {
     min-height: 35px;
 }
 
-#reg-button {
+#reg-button, #edit-button {
     justify-content: center;
     align-items: center;
     text-align: center;
 }
 
-#reg-button button {
+#reg-button button, #edit-button button {
     background-color: #2ea44f;
     border: solid 1px rgb(212, 212, 212);
     border-radius: 7.8px;
@@ -232,6 +232,10 @@ form h3 {
     cursor: pointer;
     width: 25px;
     height: 25px;
+}
+
+.list-nothing {
+    margin-top: 1rem;
 }
 
 /* MEDIA */
