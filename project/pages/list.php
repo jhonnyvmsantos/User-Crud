@@ -17,7 +17,7 @@
         if ($result == true) {
           echo "<script>alert('Cadastro efetuado com SUCESSO.');</script>";
         } else {
-          echo "<script>alert('Não foi possivel cadastrar o usuário...');</script>";
+          echo "<script>alert('ERRO ao cadastrar o usuário...');</script>";
         }
         break;
   
@@ -27,14 +27,22 @@
   
       case 'delete':
         $id = $_REQUEST["id"];
-        
-        mysqli_query($conn, "DELETE FROM tbl_user WHERE user_id = $id");
+
+        $res = mysqli_query($conn, "DELETE FROM tbl_user WHERE user_id = $id");
   
-        echo "<script>
-          alert('Usuário deletado com sucesso.');
-          window.locate.href = 'list.php';
+        if ($res == true) {
+          echo "<script>
+          alert('Usuário DELETADO com sucesso.');
+          window.locate.href = './list.php';
         </script>";
-        echo "<script>alert('DELETE');</script>";
+        } else {
+          echo "
+            <script> 
+              alert('ERRO ao deletar usuário.');
+              window.locate.href = './list.php';
+            </script>
+          ";
+        }
         break;
     }
   }
@@ -125,72 +133,6 @@
 
     </div>
   </main>
+
 </body>
-
-<?php
-
-// $sql = "SELECT * FROM tbl_user";
-
-// $res = mysqli_query($conn, $sql);
-
-// if ($res->num_rows > 0) {
-//   echo "<script> 
-//     let lContainer = document.getElementById('list-content'); 
-
-//     let item, id, info, buttons, h3, h5, p, edit, trash;  
-//   </script>";
-
-//   while ($row = $res->fetch_object()) {
-//     echo "<script>
-//       item = document.createElement('div');
-//       id = document.createElement('div');
-//       info = document.createElement('div');
-//       buttons = document.createElement('div');
-
-//       h3 = document.createElement('h3');
-//       p = document.createElement('p');
-//       h5 = document.createElement('h5');
-
-//       edit = document.createElement('img')
-//       trash = document.createElement('img')
-
-//       item.classList.add('list-item');
-//       id.classList.add('list-id');
-//       info.classList.add('list-info');
-//       buttons.classList.add('list-buttons');
-
-//       edit.src = '../imgs/edit.png';
-//       trash.src = '../imgs/trash.png';
-
-//       h3.textContent = '$row->user_id';
-//       h5.textContent = '$row->user_name';
-//       p.textContent = '$row->user_email';
-
-//       id.appendChild(h3);
-
-//       info.appendChild(p);
-//       info.appendChild(h5);
-
-//       buttons.appendChild(edit);
-//       buttons.appendChild(trash);
-
-//       item.appendChild(id);
-//       item.appendChild(info);
-//       item.appendChild(buttons);
-
-//       lContainer.appendChild(item);
-
-//       edit.addEventListener('click', () => {
-//         alert('$row->user_name');
-//       });
-
-//       trash.addEventListener('click', () => {
-//         alert('$row->user_email');
-//       });
-
-//     </script>";
-//   }
-// }
-?>
-
 </html>
